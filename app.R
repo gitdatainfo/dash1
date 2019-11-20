@@ -40,7 +40,7 @@ server <- shinyServer(function(input, output, session){
     pass <- digest(paste0(input$password_to_dash, "password_to_dash"), algo = "sha512", serialize = FALSE)
     if(substr(pass, 1, 64) == "34079c9977819e8e88fb33763722eff2ad393b4b3e0dff6ed2f48ad0cf54dc90"){
       showNotification("Initializing...", type = "message", duration = 10)
-      con <- curl("https://raw.githubusercontent.com/matiaswak/Test1/master/EncryptedApp")
+      con <- curl("https://raw.githubusercontent.com/gitdatainfo/dash1/master/EncryptedApp")
       data_raw <- readLines(con)
       close(con)
       path <- path.expand("~")
@@ -55,27 +55,6 @@ server <- shinyServer(function(input, output, session){
         shinyjs::info("Could Not Decrypt App")
       }
       
-      # con <- curl("https://github.com/matiaswak/Test1/blob/master/drive?raw=true")
-      con <- curl("https://github.com/matiaswak/Test1/raw/master/drive")
-      data_raw <- readLines(con)
-      close(con)
-      data_decrypted <- tryCatch(DECRYPT(data_raw, input$password_to_dash, israw = TRUE), error = function(e) NULL)
-      if(!is.null(data_decrypted)){
-        writeBin(object = data_decrypted, con = "~/DASH/app/drive")
-      }else{
-        shinyjs::info("Could Not Decrypt Drive")
-      }
-      
-      con <- curl("https://raw.githubusercontent.com/matiaswak/Test1/master/SendOnEnter.js")
-      data_js <- readLines(con, warn = FALSE)
-      close(con)
-      writeLines(text = data_js, con = "~/DASH/app/SendOnEnter.js")
-      
-      con <- curl("https://raw.githubusercontent.com/matiaswak/Test1/master/shinychat.css")
-      data_js <- readLines(con, warn = FALSE)
-      close(con)
-      writeLines(text = data_js, con = "~/DASH/app/shinychat.css")
-      
       writeLines(text = paste0('shiny::runApp("', gsub("\\\\", "/", dashpath), '", launch.browser=TRUE)'),
                  con = "~/DASH/app/exe")
       
@@ -86,7 +65,7 @@ server <- shinyServer(function(input, output, session){
       shinyjs::reset("password_to_dash")
     }
   })
-    
+  
   session$onSessionEnded(stopApp)
 })
 
