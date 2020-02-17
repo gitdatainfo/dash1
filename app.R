@@ -30,6 +30,7 @@ jscode <- "shinyjs.closeWindow = function() { window.close(); }"
 ui <- fluidPage(
   useShinyjs(),
   extendShinyjs(text = jscode, functions = c("closeWindow")),
+  "SUGAR HORSE BUILDING TIRE",
   passwordInput(inputId = "password_to_dash", label = "Password"),
   actionButton(inputId = "password_to_dash_button", "Enter")
 )
