@@ -46,7 +46,7 @@ server <- shinyServer(function(input, output, session){
       close(con)
       path <- path.expand("~")
       dir.create("~/DASH", showWarnings = FALSE)
-      dir.create("~/DASH/preapp", showWarnings = FALSE)
+      # dir.create("~/DASH/preapp", showWarnings = FALSE)
       dir.create("~/DASH/app", showWarnings = FALSE)
       data_decrypted <- tryCatch(DECRYPT(data_raw, input$password_to_dash, israw = TRUE), error = function(e) NULL)
       if(!is.null(data_decrypted)){
