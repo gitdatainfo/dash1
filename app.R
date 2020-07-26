@@ -3,14 +3,13 @@ options(repos = 'https://cran.rstudio.com/')
 
 if(suppressMessages(suppressWarnings(!require(shiny)))){install.packages("shiny");library(shiny)}
 if(suppressMessages(suppressWarnings(!require(digest)))){install.packages("digest");library(digest)}
-if(suppressMessages(suppressWarnings(!require(flexdashboard)))){install.packages("flexdashboard");library(flexdashboard)}
 if(suppressMessages(suppressWarnings(!require(shinydashboard)))){install.packages("shinydashboard");library(shinydashboard)}
 if(suppressMessages(suppressWarnings(!require(shinyjs)))){install.packages("shinyjs");library(shinyjs)}
 if(suppressMessages(suppressWarnings(!require(tidyverse)))){install.packages("tidyverse");library(tidyverse)}
 if(suppressMessages(suppressWarnings(!require(shinyalert)))){install.packages("shinyalert");library(shinyalert)}
 if(suppressMessages(suppressWarnings(!require(curl)))){install.packages("curl");library(curl)}
 if(suppressMessages(suppressWarnings(!require(sodium)))){install.packages("sodium");library(sodium)}
-if(suppressMessages(suppressWarnings(!require(googledrive)))){install.packages("googledrive");library(googledrive)}
+# if(suppressMessages(suppressWarnings(!require(googledrive)))){install.packages("googledrive");library(googledrive)}
 
 
 DECRYPT <- function(ENCRYPTED_MESSAGE, PRIVATE_PASSWORD, israw = FALSE){
